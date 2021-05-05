@@ -5,7 +5,25 @@ import { Chore } from 'src/app/classes/chore';
 @Component({
   selector: 'app-calendar-view',
   templateUrl: './calendar-view.component.html',
-  styles: [],
+  styles: [
+    `
+      .toggle-group-container {
+        padding: 5px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+      }
+      .days-container {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+      }
+      .tasks-container {
+        margin: 5px;
+        width: 260px;
+      }
+    `,
+  ],
 })
 export class CalendarViewComponent implements OnInit {
   constructor() {}
@@ -15,7 +33,7 @@ export class CalendarViewComponent implements OnInit {
   chores: Chore[] = [];
   thisYear: Date[] = [];
   months: number[] = Calendar.months;
-  displayedMonth: number = 0;
+  displayedMonth?: number = 0;
 
   ngOnInit(): void {
     this.thisYear = Calendar.thisAndNextYear;
@@ -44,10 +62,7 @@ export class CalendarViewComponent implements OnInit {
     );
   }
 
-  showMonth(month: number): void {
-    this.displayedMonth = month;
-  }
-  calendarMonth(month: number, year: number): Date[] {
+  calendarMonth(year: number, month?: number): Date[] {
     return this.thisYear.filter(
       (_) => _.getMonth() == month && _.getFullYear() == year
     );
