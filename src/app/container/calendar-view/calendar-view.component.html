@@ -1,22 +1,27 @@
-<span *ngFor="let month of months">
-  <button [ngClass]="{'selected': month == displayedMonth}" (click)="showMonth(month)">{{monthToDate(month, currentYear) | date: "MMM"}}</button>
-</span>
+<div class="toggle-group-container">
+  <mat-button-toggle-group [(ngModel)]="displayedMonth">
+    <mat-button-toggle *ngFor="let month of months" [value]="month">{{
+      monthToDate(month, currentYear) | date: "MMM"
+    }}</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
 
-<ul *ngFor="let month of months" >
-  <div [ngClass]="{'hidden': month !== displayedMonth}">
-    {{monthToDate(month, currentYear) | date: "MMM, yyyy"}}
-    <span *ngFor="let day of calendarMonth(month, currentYear)">
-      <ul *ngIf="hasChore(day)">
-        {{day | date: "dd"}} - Devi:
+<div class="days-container">
+  <ng-container *ngFor="let day of calendarMonth(currentYear, displayedMonth)">
+    <mat-card *ngIf="hasChore(day)" class="tasks-container">
+      <mat-selection-list>
+        <div mat-subheader>
+          {{ day | date: "dd MMM" }}
+        </div>
         <ng-container *ngFor="let chore of chores">
-          <li *ngIf="isToday(chore,day)">
-            <p> {{chore.name}}</p>
-          </li>
+          <mat-list-option *ngIf="isToday(chore, day)">
+            <small>{{ chore.name }}</small>
+          </mat-list-option>
         </ng-container>
-      </ul>
-    </span>
-  </div>
-</ul>
+      </mat-selection-list>
+    </mat-card>
+  </ng-container>
+</div>
 
 <!--
 <div *ngFor="let chore of chores">
