@@ -1,34 +1,3 @@
 <nav>WEEKLY CHORES TRACKER</nav>
-<br>
-
 <router-outlet></router-outlet>
 
-<span *ngFor="let month of months">
-  <button [ngClass]="{'selected': month == displayedMonth}" (click)="showMonth(month)">{{monthToDate(month, currentYear) | date: "MMM"}}</button>
-</span>
-
-<ul *ngFor="let month of months" >
-  <div [ngClass]="{'hidden': month !== displayedMonth}">
-    {{monthToDate(month, currentYear) | date: "MMM, yyyy"}}
-    <span *ngFor="let day of calendarMonth(month, currentYear)">
-      <ul *ngIf="hasChore(day)">
-        {{day | date: "dd"}} - Devi:
-        <ng-container *ngFor="let chore of chores">
-          <li *ngIf="isToday(chore,day)">
-            <p> {{chore.name}}</p>
-          </li>
-        </ng-container>
-      </ul>
-    </span>
-  </div>
-</ul>
-
-<!--
-<div *ngFor="let chore of chores">
-  <p>Devi {{chore.name}} ogni {{(chore.frequency == 1) ? 'settimana' : chore.frequency+' settimane'}}</p>
-  <ol>
-    <li *ngFor="let day of chore.executionDates()">{{day | date}}</li>
-  </ol>
-</div> -->
-<!-- <pre><code>{{chores | json}}</code></pre> -->
-<!-- <pre><code>{{thisYear | json}}</code></pre> -->
