@@ -33,6 +33,15 @@
     </button></mat-card-actions
   >
 </mat-card>
-{{ chapters | json }}
+<mat-list>
+  <mat-list-item *ngFor="let match of matches; let i = index">
+    {{ match.data.attributes.title.en }} -
+    {{ match.relationships.length }}
+    <button mat-raised-button color="primary" (click)="getMangaChapters(i)">
+      Get Chapters
+    </button>
+  </mat-list-item>
+</mat-list>
+<pre><code>{{ chapters | json }}</code></pre>
 {{ username }}
 {{ password }}
