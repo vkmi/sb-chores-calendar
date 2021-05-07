@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" [(ngModel)]="username" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+  </mat-form-field>
+
+  <mat-card-actions
+    ><button mat-raised-button (click)="login()">
+      Login
+    </button></mat-card-actions
+  >
+</mat-card>
+<mat-card>
+  <mat-card-title>get manga info</mat-card-title>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" [(ngModel)]="title" />
+  </mat-form-field>
+
+  <mat-card-actions
+    ><button mat-raised-button (click)="searchManga()">
+      Search
+    </button></mat-card-actions
+  >
+</mat-card>
+{{ chapters | json }}
+{{ username }}
+{{ password }}
