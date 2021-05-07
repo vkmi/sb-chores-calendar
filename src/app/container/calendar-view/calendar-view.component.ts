@@ -9,7 +9,6 @@ import { Chore } from 'src/app/classes/chore';
     `
       .toggle-group-container {
         padding: 5px;
-        margin: 0px;
         display: flex;
         justify-content: center;
       }
@@ -17,10 +16,17 @@ import { Chore } from 'src/app/classes/chore';
         display: flex;
         flex-flow: row wrap;
         align-items: stretch;
+        justify-content: space-around;
       }
       .tasks-container {
-        margin: 5px;
-        width: 260px;
+        margin-top: 5px;
+        padding-bottom: 50px;
+        flex: 0 0 260px;
+      }
+      .tasks-counter {
+        position: absolute;
+        bottom: 0;
+        padding: 16px;
       }
     `,
   ],
@@ -81,5 +87,12 @@ export class CalendarViewComponent implements OnInit {
   isToday(chore: Chore, date: Date): boolean {
     let todo = chore.executionDates.some((_) => Calendar.isSameDate(_, date));
     return todo;
+  }
+
+  dayChores(date: Date): Chore[] {
+    const filtered = this.chores.filter((c) =>
+      c.executionDates.some((_) => Calendar.isSameDate(_, date))
+    );
+    return filtered;
   }
 }
