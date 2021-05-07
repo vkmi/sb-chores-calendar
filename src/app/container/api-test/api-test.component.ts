@@ -49,7 +49,7 @@ export class ApiTestComponent implements OnInit {
     of([...chaptersObs])
       .pipe(
         concatAll(),
-        concatMap((x) => of(x).pipe(delay(200)))
+        concatMap((x) => of(x).pipe(delay(250)))
       )
       .subscribe((res) =>
         res.subscribe((r) => {

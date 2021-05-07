@@ -20,8 +20,12 @@
     </button></mat-card-actions
   >
 </mat-card>
+
+todo: actually use login and save credentials somewhere create fied for building
+generic get
+
 <mat-card>
-  <mat-card-title>get manga info</mat-card-title>
+  <mat-card-title>Get manga info</mat-card-title>
   <mat-form-field>
     <mat-label>Title</mat-label>
     <input matInput placeholder="Title" [(ngModel)]="title" />
@@ -42,6 +46,11 @@
     </button>
   </mat-list-item>
 </mat-list>
-<pre><code>{{ chapters | json }}</code></pre>
+<mat-card *ngFor="let chapter of chapters"
+  ><mat-card-header
+    >{{ chapter?.data?.attributes?.chapter}} -
+    {{ chapter?.data?.attributes?.title }}</mat-card-header
+  ></mat-card
+>
 {{ username }}
 {{ password }}
