@@ -5,8 +5,9 @@ import { CalendarViewComponent } from './container/calendar-view/calendar-view.c
 
 const routes: Routes = [
   { path: 'calendar', component: CalendarViewComponent },
+  { path: '', component: CalendarViewComponent },
   { path: 'manga', component: ApiTestComponent },
-  { path: '**', redirectTo: 'calendar' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

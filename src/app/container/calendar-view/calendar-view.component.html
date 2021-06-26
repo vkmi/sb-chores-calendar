@@ -8,7 +8,7 @@
 
 <div class="days-container">
   <ng-container *ngFor="let day of calendarMonth(currentYear, displayedMonth)">
-    <mat-card *ngIf="hasChore(day)" class="tasks-container">
+    <mat-card  *ngIf="hasChore(day)" class="tasks-container">
       <mat-card-content>
         <mat-selection-list #tasks>
           <div mat-subheader>
