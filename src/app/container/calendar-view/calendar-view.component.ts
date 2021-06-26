@@ -44,7 +44,10 @@ export class CalendarViewComponent implements OnInit {
   ngOnInit(): void {
     this.thisYear = Calendar.thisAndNextYear;
     this.displayedMonth = this.currentMonth;
-
+    this.months = [];
+    for (let i = this.currentMonth; i < this.currentMonth + 12; i++) {
+      this.months.push(i < 12 ? i : i - 12);
+    }
     this.initializeChores();
   }
 
@@ -70,11 +73,11 @@ export class CalendarViewComponent implements OnInit {
 
   calendarMonth(year: number, month?: number): Date[] {
     return this.thisYear.filter(
-      (_) => _.getMonth() == month && _.getFullYear() == year
+      (_) => _.getMonth() == month && _.getFullYear() == (month >= this.currentMonth ? year : year + 1)
     );
   }
   monthToDate(month: number, year: number): Date {
-    return new Date(year, month, 1);
+    return new Date(month >= this.currentMonth ? year : year + 1, month, 1);
   }
   hasChore(date: Date): boolean {
     for (let chore of this.chores) {
