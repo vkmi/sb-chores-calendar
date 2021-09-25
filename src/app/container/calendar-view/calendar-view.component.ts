@@ -45,6 +45,10 @@ export class CalendarViewComponent implements OnInit {
     this.thisYear = Calendar.thisAndNextYear;
     this.displayedMonth = this.currentMonth;
 
+    this.months = [];
+    for (let i = this.currentMonth; i < this.currentMonth + 12; i++) {
+      this.months.push(i < 12 ? i : i - 12);
+    }
     this.initializeChores();
   }
 
