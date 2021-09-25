@@ -75,7 +75,7 @@ export class CalendarViewComponent implements OnInit {
 
   calendarMonth(year: number, month?: number): Date[] {
     return this.thisYear.filter(
-      (_) => _.getMonth() == month && _.getFullYear() == (month >= this.currentMonth ? year : year +1)
+      (_) => _.getMonth() == month && _.getFullYear() == (month < this.currentMonth ? year + 1 : year)
     );
   }
   monthToDate(month: number, year: number): Date {

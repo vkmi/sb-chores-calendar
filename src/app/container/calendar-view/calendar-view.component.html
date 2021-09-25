@@ -12,7 +12,7 @@
       <mat-card-content>
         <mat-selection-list #tasks>
           <div mat-subheader>
-            {{ day | date: "dd MMM" }}
+            {{ day | date: "dd MMM yy" }}
           </div>
           <ng-container *ngFor="let chore of dayChores(day)">
             <mat-list-option>
