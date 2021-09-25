@@ -34,7 +34,7 @@ import { Chore } from 'src/app/classes/chore';
 export class CalendarViewComponent implements OnInit {
   constructor() {}
 
-  currentYear: number = 2021;
+  displayedYear: number = new Date().getFullYear();
   currentMonth: number = new Date().getMonth();
   chores: Chore[] = [];
   thisYear: Date[] = [];
@@ -75,7 +75,7 @@ export class CalendarViewComponent implements OnInit {
 
   calendarMonth(year: number, month?: number): Date[] {
     return this.thisYear.filter(
-      (_) => _.getMonth() == month && _.getFullYear() == year
+      (_) => _.getMonth() == month && _.getFullYear() == (month >= currentMonth ? year : year +1)
     );
   }
   monthToDate(month: number, year: number): Date {

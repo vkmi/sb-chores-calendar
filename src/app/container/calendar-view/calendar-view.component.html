@@ -1,13 +1,13 @@
 <div class="toggle-group-container">
   <mat-button-toggle-group [(ngModel)]="displayedMonth">
     <mat-button-toggle *ngFor="let month of months" [value]="month">{{
-      monthToDate(month, currentYear) | date: "MMM"
+      monthToDate(month, displayedYear) | date: "MMM"
     }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 
 <div class="days-container">
-  <ng-container *ngFor="let day of calendarMonth(currentYear, displayedMonth)">
+  <ng-container *ngFor="let day of calendarMonth(displayedYear, displayedMonth)">
     <mat-card *ngIf="hasChore(day)" class="tasks-container">
       <mat-card-content>
         <mat-selection-list #tasks>
