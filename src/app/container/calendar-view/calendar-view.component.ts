@@ -63,8 +63,8 @@ export class CalendarViewComponent implements OnInit {
       new Chore('Pulire la doccia', 6, new Date(2021, 3, 10)),
       new Chore('Pulire doccia e muro', 6, new Date(2021, 4, 1)),
       new Chore('Pulire il grasso in cucina', 12, new Date(2021, 3, 24)),
-      new Chore('Pulire le griglie', 8, new Date(2021, 4, 22)),
-      new Chore('Cambiare asciugamani e stracci', 4, new Date(2021, 3, 17))
+      new Chore('Pulire le griglie', 8, new Date(2021, 3, 10)),
+      new Chore('Cambiare asciugamani e stracci', 4, new Date(2021, 3, 10))
     );
   }
 
