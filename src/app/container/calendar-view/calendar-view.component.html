@@ -2,7 +2,7 @@
   <mat-button-toggle-group [(ngModel)]="displayedMonth">
     <mat-button-toggle *ngFor="let month of months" [value]="month">{{
       monthToDate(month, displayedYear) | date: "MMM"
-    }}</mat-button-toggle>
+      }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 
@@ -27,3 +27,5 @@
     </mat-card>
   </ng-container>
 </div>
+
+<pre><code>{{calendarMonth(displayedYear, displayedMonth) | json}}</code></pre>
