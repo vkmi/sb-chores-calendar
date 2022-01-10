@@ -28,9 +28,13 @@
   </ng-container>
 </div>
 
-<div *ngFor="let chore of chores">
-  <h2>{{chore.name}}</h2>
-  <ul>
-    <li *ngFor="let cdate of chore.executionDates">{{cdate | date: "EEEE, dd MMM yy" }}</li>
-  </ul>
-</div>
+<div *ngIf="!showAll; else allC"><u style="cursor: pointer;" (click)="showAll = !showAll">Show all</u></div>
+<ng-template #allC>
+  <div *ngIf="showAll"><u style="cursor: pointer;" (click)="showAll = !showAll">Hide</u></div>
+  <div *ngFor="let chore of chores">
+    <h2>{{chore.name}}</h2>
+    <ul>
+      <li *ngFor="let cdate of chore.executionDates">{{cdate | date: "EEEE, dd MMM yy" }}</li>
+    </ul>
+  </div>
+</ng-template>

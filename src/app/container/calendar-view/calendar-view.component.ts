@@ -40,6 +40,7 @@ export class CalendarViewComponent implements OnInit {
   thisYear: Date[] = [];
   months: number[] = Calendar.months;
   displayedMonth?: number = 0;
+  showAll = false;
 
   ngOnInit(): void {
     this.thisYear = Calendar.thisAndNextYear;
