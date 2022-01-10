@@ -31,7 +31,7 @@
 <div *ngFor="chore in chores">
   <h2>{{chore.name}}</h2>
   <ul>
-    <li *ngFor="cdate in chore.executionDates">{{cDate | date: "EEEE, dd MMM yy" }}</li>
+    <li *ngFor="cdate in chore.executionDates">{{cdate | date: "EEEE, dd MMM yy" }}</li>
   </ul>
 
 </div>
