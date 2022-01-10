@@ -30,7 +30,7 @@
 
 <div style="margin-left: 10px;">
   <div *ngIf="!showAll; else allC"><u style="cursor: pointer;" (click)="showAll = !showAll">Show all</u></div>
-</ng-container>
+</div>
 
 <ng-template #allC>
   <div *ngIf="showAll"><u style="cursor: pointer;" (click)="showAll = !showAll">Hide</u></div>
