@@ -58,18 +58,18 @@ export class CalendarViewComponent implements OnInit {
       new Chore(
         'Pulire bagno, polvere e aspirapolvere',
         1,
-        new Date(2021, 3, 3)
+        new Date(2021, 3, 3,12)
       ),
       //biweekly
-      new Chore('Lavare i pavimenti', 2, new Date(2021, 3, 3)),
+      new Chore('Lavare i pavimenti', 2, new Date(2021, 3, 3,12)),
       //monthly
-      new Chore('Cambiare lenzuola e federe', 4, new Date(2021, 3, 10)),
-      new Chore('Cambiare asciugamani e stracci', 4, new Date(2021, 3, 10)),
-      new Chore('Pulire doccia e muro', 4, new Date(2021, 3, 17)),
-      new Chore('Cambiare le federe', 4, new Date(2021, 3, 24)),
+      new Chore('Cambiare lenzuola e federe', 4, new Date(2021, 3, 10,12)),
+      new Chore('Cambiare asciugamani e stracci', 4, new Date(2021, 3, 10,12)),
+      new Chore('Pulire doccia e muro', 4, new Date(2021, 3, 17,12)),
+      new Chore('Cambiare le federe', 4, new Date(2021, 3, 24,12)),
       //other
-      new Chore('Pulire le griglie', 8, new Date(2021, 3, 10)),
-      new Chore('Pulire il grasso in cucina', 12, new Date(2021, 3, 24)),
+      new Chore('Pulire le griglie', 8, new Date(2021, 3, 10,12)),
+      new Chore('Pulire il grasso in cucina', 12, new Date(2021, 3, 24,12)),
     );
   }
 
